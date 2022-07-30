@@ -1,0 +1,17 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+form {
+  background-color: rgba(49, 167, 235, 0.7);
+
+}
+
+.label-row {
+  background-color: rgb(236, 137, 22);
+}
