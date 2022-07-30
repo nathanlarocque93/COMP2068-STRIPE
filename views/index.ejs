@@ -19,16 +19,21 @@
 
     <main class="container">
 
-        <h1 class="mt-2 text-warning" style="text-shadow: 2px 2px 2px black;">Welcome to Marketplace!</h1>
+        <h1 class="mt-1 text-warning" style="text-shadow: 2px 2px 2px black;">Welcome to Marketplace!</h1>
 
         <form class="d-print-block gap-2 p-2 rounded-3" method="#">
             <% products.items.forEach((product) => { %>
-                <div class="mb-3 label-row text-white p-2 product-row">
-                    <label for="item1" class="form-label fw-bold pe-3"><%= product.name %></label>
-                    <span class="product-price">$<%= product.price / 100 %></span>
-                    <span class="product-id" hidden><%= product.priceTag %></span>
-                    <input type="number" value="0" min="0" max="5" class="product-quantity" onclick="getTotal()" />
+                <div class="mb-3 label-row text-white p-2 product-row d-flex justify-content-between rounded-3">
+                    <section class="pt-3 ps-2">
+                        <label for="item1" class="form-label fw-bold pe-2"><%= product.name %></label>
+                        <span class="product-price pe-5">$<%= product.price / 100 %></span>
+                        <span class="product-id" hidden><%= product.priceTag %></span>
+                        <input type="number" value="0" min="0" max="5" class="product-quantity ps-2" onclick="getTotal()" />
+                    </section>
 
+                    <section class="pe-5">
+                        <img src="<%= product.imgFile %>" alt="<%= product.imgDesc %>" class="img-thumbnail" width="150" height="150" />
+                    </section>
                 </div>
             <% }) %>
             <div class="container">
