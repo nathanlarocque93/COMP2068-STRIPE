@@ -4,17 +4,6 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
-//
-if (process.env.NODE_ENV !== 'production') {
-  require('dotenv').config({path:'.env'});
-}
-
-// STRIPE KEYS
-const stripeSecretKey = process.env.STRIPE_SECRET_KEY;
-const stripePublicKey = process.env.STRIPE_PUBLIC_KEY;
-
-console.log(stripePublicKey)
-
 var indexRouter = require('./routes/index');
 
 var app = express();
