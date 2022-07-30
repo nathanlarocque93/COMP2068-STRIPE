@@ -4,25 +4,33 @@
             "id": 1,
             "name": "Apple Pie",
             "price": 999,
-            "priceTag": "price_1LQ1HME38DBPt8jlacp7lpbb"
+            "priceTag": "price_1LQ1HME38DBPt8jlacp7lpbb",
+            "img-file": "/images/ApplePie.jpg",
+            "img-desc": "A Picture of a Apple Pie"
         },
         {
             "id": 2,
             "name": "Pumpkin Pie",
             "price": 799,
-            "priceTag": "price_1LQ1HoE38DBPt8jlA3tSFH2S"
+            "priceTag": "price_1LQ1HoE38DBPt8jlA3tSFH2S",
+            "img-file": "/images/PumpkinPie.jpeg",
+            "img-desc": "A Picture of a Pumpkin Pie"
         },
         {
             "id": 3,
             "name": "Cherry Pie",
             "price": 1451,
-            "priceTag": "price_1LQ1IKE38DBPt8jl2XR2BU43"
+            "priceTag": "price_1LQ1IKE38DBPt8jl2XR2BU43",
+            "img-file": "/images/CherryPie.jpg",
+            "img-desc": "A Picture of a Cherry Pie"
         },
         {
             "id": 4,
             "name": "Blueberry Pie",
             "price": 1299,
-            "priceTag": "price_1LQ1J4E38DBPt8jlujjm2dh6"
+            "priceTag": "price_1LQ1J4E38DBPt8jlujjm2dh6",
+            "img-file": "/images/BlueberryPie.jpg",
+            "img-desc": "A Picture of a Blueberry Pie"
         }
     ]
 
