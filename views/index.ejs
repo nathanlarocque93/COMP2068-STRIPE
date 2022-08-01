@@ -46,11 +46,14 @@
                         <script>
                             
                             
+                            // function for getting the total price of selected items
                             function getTotal() {
 
+                                // grabbing a product row and storing it in a variable
                                 var productSections = document.getElementsByClassName('product-row')
                                 var total = 0
 
+                                // inputing various information from products.json and adding it to the form sections
                                 for (var i = 0; i < productSections.length; i++) {
                                     var productSelected = productSections[i]
                                     var productPrice = productSelected.getElementsByClassName('product-price')[0]
@@ -59,9 +62,11 @@
                                     var productQuantity = productSelected.getElementsByClassName('product-quantity')[0]
                                     var quantity = productQuantity.value
 
+                                    // calculating total here
                                     total += price * quantity
-                                    one = productSections[i].value
                                 }
+
+                                // rounding the total and outputing
                                 total = Math.round(total*100) / 100
                                 document.getElementById('totalPrice').innerText = '$' + total.toFixed(2)
                             }
@@ -81,12 +86,12 @@
             <script>
 
                 (function() {
-                  var stripe = Stripe('pk_test_51LPtuvE38DBPt8jlMdTxR4eACmGS2FCvxEHCKnipeJCnyYgZs3b3eF61DEFg0NQSOIDEiw3L6Xnp9CydB5YkIdiu001jQjNYFW');
                 
-                  var totalPriceGet = document.getElementById('totalPrice')
-                        price_1LPyw6E38DBPt8jlVdX4s1h6 = parseFloat(totalPriceGet.innerText.replace('$', '')) * 100
-                            console.log(totalPrice)
+                    // grabing stripe public key
+                  var stripe = Stripe(stripePublicKey);
+                
 
+                  // variable and even listener for checkout button
                   var checkoutButton = document.getElementById('checkout-button');
                   checkoutButton.addEventListener('click', function () {
                     /*
@@ -94,15 +99,20 @@
                      * them to Checkout.
                      */
 
+                     // grabbing product sections for the for each loop
                      var productSections = document.getElementsByClassName('product-row')
+                     // array for storing cart items
                      const lineItems = []
+                     // for loop grabbing cart items
                      for (var i = 0; i < productSections.length; i++) {
 
+                        // grabbin different variables need for checkout
                     var productSelected = productSections[i];
                     var priceId = productSelected.getElementsByClassName("product-id")[0].innerHTML;
                     var productQuantity = productSelected.getElementsByClassName('product-quantity')[0];
                     var quantity = productQuantity.value;
 
+                    // if the item as a quantity adding it to listItems for checkout
                     if (quantity > 0) {
 
                         lineItems.push({ price: priceId, quantity: parseInt(quantity)});
@@ -110,16 +120,13 @@
 
 
                     };
+
+                    // redirecting to checkout page
                     stripe.redirectToCheckout({
                       lineItems,
                       mode: 'payment',
-                      /*
-                       * Do not rely on the redirect to the successUrl for fulfilling
-                       * purchases, customers may not always reach the success_url after
-                       * a successful payment.
-                       * Instead use one of the strategies described in
-                       * https://stripe.com/docs/payments/checkout/fulfill-orders
-                       */
+                 
+                      // redericts based on what happens
                       successUrl: 'http://localhost:3000/success',
                       cancelUrl: 'http://localhost:3000/',
                     })
